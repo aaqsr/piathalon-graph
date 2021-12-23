@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
 import FunctionPlot from './FunctionPlot';
 
-const Graph: React.FC = () => {
+export interface GraphProps {
+    func: String
+}
+
+const Graph: React.FC<GraphProps> = props => {
     const [constA, changeA] = useState(-1);
 
     return (
     <>
-        <div id="" />
         <FunctionPlot
             options={{
                 target: '',
                 data: [{
-                    fn: `${constA}x^2`,
+                    fn: `${props.func.toString()}`,
                 }],
             }}
         />
