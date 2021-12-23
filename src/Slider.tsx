@@ -18,23 +18,20 @@ export interface SliderProps {
 }
 
 export const InputSlider: React.FC<SliderProps> = props => {
-    const [value, setValue] = React.useState<
-        number | string | Array<number | string>
-    >(0);
 
     const handleSliderChange = (event: Event, newValue: number | number[]) => {
-        setValue(newValue);
+        props.val.setValue(newValue);
     };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(event.target.value === "" ? "" : Number(event.target.value));
+        props.val.setValue(event.target.value === "" ? "" : Number(event.target.value));
     };
 
     const handleBlur = () => {
-        if (value < -10) {
-            setValue(10);
-        } else if (value > 10) {
-            setValue(10);
+        if (props.val.value < -10) {
+            props.val.setValue(10);
+        } else if (props.val.value > 10) {
+            props.val.setValue(10);
         }
     };
 
@@ -46,7 +43,7 @@ export const InputSlider: React.FC<SliderProps> = props => {
             <Grid container spacing={2} alignItems="center">
                 <Grid item xs>
                     <Slider
-                        value={typeof value === "number" ? value : 0}
+                        value={typeof props.val.value === "number" ? props.val.value : 0}
                         onChange={handleSliderChange}
                         aria-labelledby="input-slider"
                         min={-10}
@@ -63,7 +60,7 @@ export const InputSlider: React.FC<SliderProps> = props => {
                 </Grid>
                 <Grid item>
                     <Input
-                        value={value}
+                        value={props.val.value}
                         size="medium"
                         onChange={handleInputChange}
                         onBlur={handleBlur}

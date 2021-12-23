@@ -9,6 +9,10 @@ export interface GraphProps {
 const Graph: React.FC<GraphProps> = props => {
     const [constA, changeA] = useState(-1);
 
+    const [value, setValue] = React.useState<
+        number | string | Array<number | string>
+    >(0);
+
     return (
     <>
         <FunctionPlot
@@ -21,8 +25,8 @@ const Graph: React.FC<GraphProps> = props => {
             />
             <InputSlider
                 val={{
-                    value: '',
-                    setValue: () => null ,
+                    value,
+                    setValue
                 }}
             />
     </>
