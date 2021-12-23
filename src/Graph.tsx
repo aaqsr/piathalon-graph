@@ -19,7 +19,7 @@ const Graph: React.FC<GraphProps> = props => {
             options={{
                 target: '',
                 data: [{
-                    fn: `${props.func.toString()}`,
+                    fn: `${value}${props.func.toString()}`,
                 }],
             }}
             />
