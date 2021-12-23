@@ -10,7 +10,14 @@ const Input = styled(MuiInput)`
     width: 42px;
 `;
 
-export default function InputSlider() {
+export interface SliderProps {
+    val: {
+        value: any,
+        setValue: Function
+    }
+}
+
+export const InputSlider: React.FC<SliderProps> = props => {
     const [value, setValue] = React.useState<
         number | string | Array<number | string>
     >(0);
@@ -73,3 +80,5 @@ export default function InputSlider() {
         </Box>
     );
 }
+
+export default InputSlider;

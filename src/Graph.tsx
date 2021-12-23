@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import FunctionPlot from './FunctionPlot';
+import InputSlider from './Slider';
 
 export interface GraphProps {
     func: String
@@ -17,7 +18,13 @@ const Graph: React.FC<GraphProps> = props => {
                     fn: `${props.func.toString()}`,
                 }],
             }}
-        />
+            />
+            <InputSlider
+                val={{
+                    value: '',
+                    setValue: () => null ,
+                }}
+            />
     </>
     )
 }
