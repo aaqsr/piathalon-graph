@@ -13,7 +13,7 @@ const Input = styled(MuiInput)`
 export default function InputSlider() {
     const [value, setValue] = React.useState<
         number | string | Array<number | string>
-    >(30);
+    >(0);
 
     const handleSliderChange = (event: Event, newValue: number | number[]) => {
         setValue(newValue);
@@ -42,16 +42,26 @@ export default function InputSlider() {
                         value={typeof value === "number" ? value : 0}
                         onChange={handleSliderChange}
                         aria-labelledby="input-slider"
+                        min={-10}
+                        step={0.1}
+                        max={10}
+                        track={false}
+                        marks={[
+                            {
+                                value: 0,
+                                label: 0
+                            }
+                        ]}
                     />
                 </Grid>
                 <Grid item>
                     <Input
                         value={value}
-                        size="small"
+                        size="medium"
                         onChange={handleInputChange}
                         onBlur={handleBlur}
                         inputProps={{
-                            step: 1,
+                            step: 0.1,
                             min: -10,
                             max: 10,
                             type: "number",
