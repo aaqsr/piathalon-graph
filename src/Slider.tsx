@@ -11,27 +11,38 @@ const Input = styled(MuiInput)`
 `;
 
 export interface SliderProps {
-    val: {
-        value: any,
-        setValue: Function
+    index: string,
+    state: {
+        paramState: any,
+        setParamState: Function
     }
 }
 
 export const InputSlider: React.FC<SliderProps> = props => {
 
+    const updateState = (newValue: number | number[]) => {
+        let temp = { ...props.state.paramState };
+        temp[props.index] = newValue;
+        props.state.setParamState(temp);
+    }
+
     const handleSliderChange = (event: Event, newValue: number | number[]) => {
-        props.val.setValue(newValue);
+        updateState(newValue);
     };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        props.val.setValue(event.target.value === "" ? "" : Number(event.target.value));
+        console.log(event.target.value);
+        props.state.paramState[props.index] = event.target.value === "" ? "" : Number(event.target.value);
+        props.state.setParamState(props.state.paramState);
     };
 
     const handleBlur = () => {
-        if (props.val.value < -10) {
-            props.val.setValue(10);
-        } else if (props.val.value > 10) {
-            props.val.setValue(10);
+        if (props.state.paramState[props.index] < -10) {
+            props.state.paramState[props.index] = -10;
+            props.state.setParamState(props.state.paramState);
+        } else if (props.state.paramState[props.index] > 10) {
+            props.state.paramState[props.index] = -10;
+            props.state.setParamState(props.state.paramState);
         }
     };
 
@@ -43,7 +54,12 @@ export const InputSlider: React.FC<SliderProps> = props => {
             <Grid container spacing={2} alignItems="center">
                 <Grid item xs>
                     <Slider
-                        value={typeof props.val.value === "number" ? props.val.value : 0}
+                        value={
+                            typeof props.state.paramState[props.index] ===
+                            "number"
+                                ? props.state.paramState[props.index]
+                                : 0
+                        }
                         onChange={handleSliderChange}
                         aria-labelledby="input-slider"
                         min={-10}
@@ -60,7 +76,7 @@ export const InputSlider: React.FC<SliderProps> = props => {
                 </Grid>
                 <Grid item>
                     <Input
-                        value={props.val.value}
+                        value={props.state.paramState[props.index]}
                         size="medium"
                         onChange={handleInputChange}
                         onBlur={handleBlur}

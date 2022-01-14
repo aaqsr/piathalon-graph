@@ -5,6 +5,7 @@ export const App:React.FC = () => (
    <>
         <Graph
             func={"x^2"}
+            paramObj={{ "a": 0, "b": 0, "c": 0 }}
         />
 
    </>     
