@@ -22,7 +22,7 @@ export interface SliderProps {
 
 export const InputSlider: React.FC<SliderProps> = props => {
 
-    const updateState = (newValue: number | number[]) => {
+    const updateState = (newValue: number | number[] | string) => {
         let temp = { ...props.state.paramState };
         temp[props.index] = newValue;
         props.state.setParamState(temp);
@@ -34,17 +34,14 @@ export const InputSlider: React.FC<SliderProps> = props => {
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         console.log(event.target.value);
-        props.state.paramState[props.index] = event.target.value === "" ? "" : Number(event.target.value);
-        props.state.setParamState(props.state.paramState);
-    };
+        updateState(event.target.value === "" ? "" : Number(event.target.value));
+    }
 
     const handleBlur = () => {
         if (props.state.paramState[props.index] < -10) {
-            props.state.paramState[props.index] = -10;
-            props.state.setParamState(props.state.paramState);
+            updateState(-10);
         } else if (props.state.paramState[props.index] > 10) {
-            props.state.paramState[props.index] = -10;
-            props.state.setParamState(props.state.paramState);
+            updateState(10)
         }
     };
 
