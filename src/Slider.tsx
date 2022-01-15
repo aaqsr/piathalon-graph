@@ -17,6 +17,8 @@ export interface SliderProps {
         setParamState: Function
     }
 }
+ 
+// todo: clean up and comment :
 
 export const InputSlider: React.FC<SliderProps> = props => {
 
@@ -49,7 +51,7 @@ export const InputSlider: React.FC<SliderProps> = props => {
     return (
         <Box sx={{ width: 250 }}>
             <Typography id="input-slider" gutterBottom>
-                Placeholder Text
+                {`Manipulate ${props.index}:`}
             </Typography>
             <Grid container spacing={2} alignItems="center">
                 <Grid item xs>
