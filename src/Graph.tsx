@@ -27,23 +27,22 @@ const Graph: React.FC<GraphProps> = props => {
                     target: "",
                     data: [
                         {
-                            fn: `${paramState['a']}/x + ${paramState['b']} + (${paramState['c']})x^2` // make the values replace the string
+                            fn: `${paramState["a"]}/x + ${paramState["b"]} + (${paramState["c"]})x^2` // make the values replace the string
                         }
                     ]
                 }}
             />
 
             {Object.keys(props.paramObj).map((val) => (
-                <>
-                <InputSlider
-                    index={val}
-                    state={{
-                        paramState,
-                        setParamState
-                    }}
-                />
-                <div style={{margin: 10}}></div>
-                </>
+                <div style={{ margin: 25 }}>
+                    <InputSlider
+                        index={val}
+                        state={{
+                            paramState,
+                            setParamState
+                        }}
+                    />
+                </div>
             ))}
 
             {/* <InputSlider
