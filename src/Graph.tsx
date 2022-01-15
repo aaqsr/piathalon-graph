@@ -1,4 +1,5 @@
 import { Input } from '@mui/material';
+import { padding } from '@mui/system';
 import React, { useState } from 'react'
 import FunctionPlot from './FunctionPlot';
 import InputSlider from './Slider';
@@ -33,6 +34,7 @@ const Graph: React.FC<GraphProps> = props => {
             />
 
             {Object.keys(props.paramObj).map((val) => (
+                <>
                 <InputSlider
                     index={val}
                     state={{
@@ -40,6 +42,8 @@ const Graph: React.FC<GraphProps> = props => {
                         setParamState
                     }}
                 />
+                <div style={{margin: 10}}></div>
+                </>
             ))}
 
             {/* <InputSlider
