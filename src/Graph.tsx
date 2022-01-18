@@ -33,6 +33,7 @@ const Graph: React.FC<GraphProps> = props => {
         <>
             <FunctionPlot
                 options={{
+                    title: props.func.toString(),
                     target: "",
                     data: [
                         {
