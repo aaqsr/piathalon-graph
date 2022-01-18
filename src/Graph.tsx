@@ -7,6 +7,8 @@ export interface GraphProps {
     paramObj: {[key: string]: number}
 }
 
+
+
 const Graph: React.FC<GraphProps> = props => {
     // const [constA, changeA] = useState(-1);
 
@@ -67,5 +69,21 @@ const Graph: React.FC<GraphProps> = props => {
         </>
     );
 }
+
+interface GraphGenProps {
+    eqs: {
+        [key: string]: { [key: string]: number }
+    }
+}
+
+export const GraphGen: React.FC<GraphGenProps> = (props) => {
+    return (
+        <>
+        {Object.keys(props.eqs).map(key => (
+            <Graph func={key} paramObj={props.eqs[key]}/>
+        ))}
+        </>
+    )
+};
 
 export default Graph;

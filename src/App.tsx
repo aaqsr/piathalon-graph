@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import Graph from './Graph';
+import GraphTabs from "./GraphTabs";
 
 export const App: React.FC = () => (
     <>
@@ -13,11 +14,14 @@ export const App: React.FC = () => (
             style={{ minHeight: "100vh" }}
         >
             <Grid item xs={3}>
-                <Graphs />
+                {/* <Graphs /> */}
+                <GraphTabs/>
             </Grid>
         </Grid>
     </>
 );
+
+
 
 const Graphs: React.FC = () => (
     <>
@@ -27,16 +31,10 @@ const Graphs: React.FC = () => (
         <Graph func={"-a x^2 + b x + c"} paramObj={{ a: 1, b: 0, c: 0 }} />
         <Graph func={"y=sin(ax)"} paramObj={{ a: 1 }} />
         <Graph func={"y=bsin(ax)"} paramObj={{ a: 1, b: 1 }} />
-        <Graph
-            func={"y=d sin(e x)+ cos( f x)"}
-            paramObj={{ d: 1, e: 1, f: 0 }}
-        />{" "}
+        <Graph func={"y=d sin(e x)+ cos( f x)"} paramObj={{ d: 1, e: 1, f: 0 }} />
         it runs but it's too complicated for them
         <Graph func={"y=atan(x)+b"} paramObj={{ a: 1, b: 0 }} />
-        <Graph
-            func={"y=atan(x)^2+btan(x)-c"}
-            paramObj={{ a: 1, b: 1, c: 0 }}
-        />{" "}
+        <Graph func={"y=atan(x)^2+btan(x)-c"} paramObj={{ a: 1, b: 1, c: 0 }} />
         it works but why???
         <Graph func={"y=exp(ax)"} paramObj={{ a: 1 }} />
         <Graph func={"y=exp(ax)+b"} paramObj={{ a: 1, b: 0 }} />
