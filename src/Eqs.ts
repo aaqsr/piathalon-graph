@@ -8,8 +8,8 @@ export const polys = {
 export const trigs = {
     "y=sin(ax)": { a: 1 },
     "y=bsin(ax)": { a: 1, b: 1 },
+    "y=atan(x)+b": { a: 1, b: 0 },
     "y=d sin(e x)+ cos( f x)": { d: 1, e: 1, f: 0 },
-    "y=atan(x)+b": { a: 1, b: 0 }
 };
 
 export const exps = {
