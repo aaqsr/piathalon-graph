@@ -81,8 +81,9 @@ export const GraphGen: React.FC<GraphGenProps> = (props) => {
         <>
         {Object.keys(props.eqs).map( (key, index) => (
             <>
-                <Typography>{`Graph number ${index+1}`}</Typography>
+                <Typography>{`Graph number ${index+1}:`}</Typography>
                 <Graph func={key} paramObj={props.eqs[key]}/>
+                
             </>
         ))}
         </>
