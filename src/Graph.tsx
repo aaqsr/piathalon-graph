@@ -1,5 +1,3 @@
-import { Input } from '@mui/material';
-import { padding } from '@mui/system';
 import React, { useState } from 'react'
 import FunctionPlot from './FunctionPlot';
 import InputSlider from './Slider';
@@ -18,7 +16,18 @@ const Graph: React.FC<GraphProps> = props => {
 
     const [paramState, setParamState] = useState(props.paramObj);
     // let paramMutable = { ...props.paramObj };
-    
+
+    // const funcStr = () => {
+    let funcStr = props.func;
+    Object.keys(props.paramObj).map( objKey => {
+        console.log(paramState[objKey])
+        funcStr = funcStr.replace(objKey.toString(), paramState[objKey].toString())
+        return funcStr;
+    })
+    console.log(props.func)
+    console.log (funcStr);
+        // return funcStr
+    // }
 
     return (
         <>
@@ -27,9 +36,12 @@ const Graph: React.FC<GraphProps> = props => {
                     target: "",
                     data: [
                         {
-                            fn: `${paramState["a"]}/x + ${paramState["b"]} + (${paramState["c"]})x^2` // make the values replace the string
+                            fn: funcStr.toString() // make the values replace the string
                         }
-                    ]
+                    ],
+                    xAxis: {
+                        domain: [-10,10]
+                    }
                 }}
             />
 
