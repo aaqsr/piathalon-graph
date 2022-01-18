@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import React, { useState } from 'react'
 import FunctionPlot from './FunctionPlot';
 import InputSlider from './Slider';
@@ -35,7 +36,6 @@ const Graph: React.FC<GraphProps> = props => {
         <>
             <FunctionPlot
                 options={{
-                    title: props.func.toString(),
                     target: "",
                     data: [
                         {
@@ -79,8 +79,11 @@ interface GraphGenProps {
 export const GraphGen: React.FC<GraphGenProps> = (props) => {
     return (
         <>
-        {Object.keys(props.eqs).map(key => (
-            <Graph func={key} paramObj={props.eqs[key]}/>
+        {Object.keys(props.eqs).map( (key, index) => (
+            <>
+                <Typography>{`Graph number ${index+1}`}</Typography>
+                <Graph func={key} paramObj={props.eqs[key]}/>
+            </>
         ))}
         </>
     )
