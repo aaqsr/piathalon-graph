@@ -65,10 +65,13 @@ export default function GraphTabs() {
                 <GraphGen eqs={Eqs.polys}/>
             </TabPanel>
             <TabPanel value={value} index={1}>
+                <GraphGen eqs={Eqs.trigs}/>
             </TabPanel>
             <TabPanel value={value} index={2}>
+                <GraphGen eqs={Eqs.exps}/>
             </TabPanel>
-            <TabPanel value={value} index={2}>
+            <TabPanel value={value} index={3}>
+                <GraphGen eqs={Eqs.final}/>
             </TabPanel>
         </Box>
     );
