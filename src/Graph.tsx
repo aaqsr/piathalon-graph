@@ -23,12 +23,12 @@ const Graph: React.FC<GraphProps> = props => {
     // const funcStr = () => {
     let funcStr = props.func;
     Object.keys(props.paramObj).map( objKey => {
-        console.log(paramState[objKey])
+        // console.log(paramState[objKey])
         funcStr = funcStr.replace(objKey.toString(), paramState[objKey].toString())
         return funcStr;
     })
-    console.log(props.func)
-    console.log (funcStr);
+    // console.log(props.func)
+    // console.log (funcStr);
         // return funcStr
     // }
 
@@ -47,7 +47,7 @@ const Graph: React.FC<GraphProps> = props => {
                     }
                 }}
             />
-
+            
             {Object.keys(props.paramObj).map((val) => (
                 <div style={{ margin: 25 }}>
                     <InputSlider
@@ -59,6 +59,10 @@ const Graph: React.FC<GraphProps> = props => {
                     />
                 </div>
             ))}
+
+            {/* <Typography align='right' style={{marginBottom:'15px'}}>
+                Points: {Object.keys(props.paramObj).length}
+            </Typography> */}
 
             {/* <InputSlider
                 val={{
@@ -81,7 +85,7 @@ export const GraphGen: React.FC<GraphGenProps> = (props) => {
         <>
         {Object.keys(props.eqs).map( (key, index) => (
             <>
-                <Typography>{`Graph number ${index+1}:`}</Typography>
+                <Typography variant="h6">{`Graph number ${index+1}:`}</Typography>
                 <Graph func={key} paramObj={props.eqs[key]}/>
                 
             </>
