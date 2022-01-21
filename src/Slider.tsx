@@ -33,7 +33,7 @@ export const InputSlider: React.FC<SliderProps> = props => {
     };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(event.target.value);
+        // console.log(event.target.value);
         updateState(event.target.value === "" ? "" : Number(event.target.value));
     }
 

@@ -1,7 +1,8 @@
-import { Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import React, { useState } from 'react'
 import FunctionPlot from './FunctionPlot';
 import InputSlider from './Slider';
+
 
 export interface GraphProps {
     func: String,
@@ -43,11 +44,19 @@ const Graph: React.FC<GraphProps> = props => {
                         }
                     ],
                     xAxis: {
-                        domain: [-10,10]
+                        domain: [-10, 10]
                     }
                 }}
             />
-            
+            <Grid
+                container
+                spacing={0}
+                direction="column"
+                alignItems="center"
+                justifyContent="center"
+                style={{ minHeight: "10vh" }}
+            >
+                <Grid item xs={3}>
             {Object.keys(props.paramObj).map((val) => (
                 <div style={{ margin: 25 }}>
                     <InputSlider
@@ -59,6 +68,10 @@ const Graph: React.FC<GraphProps> = props => {
                     />
                 </div>
             ))}
+                </Grid>
+            </Grid>
+            <div style={{margin: "20px"}}></div>
+
 
             {/* <Typography align='right' style={{marginBottom:'15px'}}>
                 Points: {Object.keys(props.paramObj).length}

@@ -4,9 +4,21 @@ import Graph from './Graph';
 import GraphTabs from "./GraphTabs";
 import { Typography } from "@mui/material";
 import "./index.css";
+import { createTheme } from "@mui/material/styles"
+import { ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+    typography: {
+        fontFamily: [
+            '"Computer Modern Serif"',
+            "serif"
+        ].join(",")
+    }
+});
+
 
 export const App: React.FC = () => (
-    <>
+    <ThemeProvider theme={theme}>
         <Grid
             container
             spacing={0}
@@ -23,13 +35,13 @@ export const App: React.FC = () => (
                     variant="h6"
                     style={{ margin: "10px" }}
                 >
-                    Graphs have points ( number of sliders x the tab multiplier)
+                    Graphs have points ( number of sliders x the tab multiplier )
                 </Typography>
                 <GraphTabs />
             </Grid>
             <Grid item xs={3}></Grid>
         </Grid>
-    </>
+    </ThemeProvider>
 );
 
 
