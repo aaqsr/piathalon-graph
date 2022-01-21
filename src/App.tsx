@@ -11,7 +11,6 @@ const theme = createTheme({
     typography: {
         fontFamily: [
             '"Computer Modern Serif"',
-            "serif"
         ].join(",")
     }
 });
