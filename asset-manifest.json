@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/piathalon-graph/static/css/main.2da4cb45.css",
-    "main.js": "/piathalon-graph/static/js/main.b348daf7.js",
+    "main.css": "/piathalon-graph/static/css/main.baa7d792.css",
+    "main.js": "/piathalon-graph/static/js/main.47383329.js",
+    "static/media/cmunss.otf": "/piathalon-graph/static/media/cmunss.835c2ff0f065b7819e59.otf",
     "index.html": "/piathalon-graph/index.html",
-    "main.2da4cb45.css.map": "/piathalon-graph/static/css/main.2da4cb45.css.map",
-    "main.b348daf7.js.map": "/piathalon-graph/static/js/main.b348daf7.js.map"
+    "main.baa7d792.css.map": "/piathalon-graph/static/css/main.baa7d792.css.map",
+    "main.47383329.js.map": "/piathalon-graph/static/js/main.47383329.js.map"
   },
   "entrypoints": [
-    "static/css/main.2da4cb45.css",
-    "static/js/main.b348daf7.js"
+    "static/css/main.baa7d792.css",
+    "static/js/main.47383329.js"
   ]
 }
