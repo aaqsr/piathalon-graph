@@ -2,6 +2,8 @@ import { Grid } from "@mui/material";
 import React from "react";
 import Graph from './Graph';
 import GraphTabs from "./GraphTabs";
+import { Typography } from "@mui/material";
+import "./index.css";
 
 export const App: React.FC = () => (
     <>
@@ -13,11 +15,16 @@ export const App: React.FC = () => (
             justifyContent="center"
             style={{ minHeight: "100vh" }}
         >
-            <Grid item xs={3}>
-
-            </Grid>
+            <Grid item xs={3}></Grid>
             <Grid item xs={3}>
                 {/* <Graphs /> */}
+                <Typography
+                    align="center"
+                    variant="h6"
+                    style={{ margin: "10px" }}
+                >
+                    Graphs have points ( number of sliders x the tab multiplier)
+                </Typography>
                 <GraphTabs />
             </Grid>
             <Grid item xs={3}></Grid>

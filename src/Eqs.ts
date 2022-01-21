@@ -15,7 +15,7 @@ export const exps = {
     "y=exp(ax)": { a: 1 },
     "y=exp(ax)+bx^2": { a: 1, b: 0 },
     "y=ln(ax)": { a: 1 },
-    "y=ln(ax)+bx^2 +c": { a: 1, b: 0 }
+    "y=ln(ax)+ b x^2 +c": { a: 1, b: 0, c: 0 }
 };
 
 export const final = {

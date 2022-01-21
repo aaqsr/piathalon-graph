@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 
 import { GraphGen } from "./Graph";
 import * as Eqs from "./Eqs";
+import { textAlign } from "@mui/system";
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -48,30 +49,30 @@ export default function GraphTabs() {
     };
 
     return (
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%" }}> 
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
                 <Tabs
                     value={value}
                     onChange={handleChange}
                     aria-label="basic tabs example"
                 >
-                    <Tab label="Polynomial" {...a11yProps(0)} />
-                    <Tab label="Trignometric" {...a11yProps(1)} />
-                    <Tab label="Exponential" {...a11yProps(2)} />
-                    <Tab label="Final" {...a11yProps(3)} />
+                    <Tab label="Polynomial x1" {...a11yProps(0)} />
+                    <Tab label="Trignometric x2" {...a11yProps(1)} />
+                    <Tab label="Exponential x2" {...a11yProps(2)} />
+                    <Tab label="Final x3 woah" {...a11yProps(3)} />
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
-                <GraphGen eqs={Eqs.polys}/>
+                <GraphGen eqs={Eqs.polys} />
             </TabPanel>
             <TabPanel value={value} index={1}>
-                <GraphGen eqs={Eqs.trigs}/>
+                <GraphGen eqs={Eqs.trigs} />
             </TabPanel>
             <TabPanel value={value} index={2}>
-                <GraphGen eqs={Eqs.exps}/>
+                <GraphGen eqs={Eqs.exps} />
             </TabPanel>
             <TabPanel value={value} index={3}>
-                <GraphGen eqs={Eqs.final}/>
+                <GraphGen eqs={Eqs.final} />
             </TabPanel>
         </Box>
     );
