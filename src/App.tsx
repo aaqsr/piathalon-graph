@@ -34,12 +34,23 @@ export const App: React.FC = () => (
                     variant="h6"
                     style={{ margin: "10px" }}
                 >
-                    Graphs have points ( number of sliders x the tab multiplier )
+                    Graphs have points ( number of sliders x the tab multiplier
+                    )
                 </Typography>
                 <GraphTabs />
             </Grid>
             <Grid item xs={3}></Grid>
         </Grid>
+        <div style={{marginRight: "10px"}}>
+            <Typography align="right">
+                &copy; Built by Awab Q.
+                Part of Pi-athalon '22
+            </Typography>
+            <Typography align="right">
+                Thank you to the OSS community
+                Source code on Github
+            </Typography>
+        </div>
     </ThemeProvider>
 );
 
